@@ -13,7 +13,7 @@ try {
 
 //step2
 
-function flattenarray (array){
+/*function flattenarray (array){
     let result = [];
     for (const item of array) {
         if (Array.isArray(item)) {
@@ -22,6 +22,17 @@ function flattenarray (array){
         else {
             result.push(item);}
     }
-    return result;}
-const nestedarray = [1,2,[3, 4, [5, 6]]];
-console.log(flattenarray(nestedarray));
+    return result;}*/
+
+    function flattenarray(array, result = []) {
+      return function() {
+          for (const item of array) {
+              if (Array.isArray(item)) {
+                  return flattenarray(item, result);
+              } else {
+                  result.push(item);
+              }
+          }
+          return result;
+      };
+  }
