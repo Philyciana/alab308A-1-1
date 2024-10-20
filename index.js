@@ -36,3 +36,29 @@ try {
           return result;
       };
   }
+
+  
+  const simple = document.getElementById('simple');
+  const primes = [];
+
+
+ 
+  function addsallprime(n){
+    for (let num = 1; num <= n; num++) {
+        let isPrime = true; 
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }}
+        if (isPrime) {
+            primes.push(num);
+        }
+    }
+    simple.textContent = primes;
+    alert("The calculation has finished")
+}
+
+addsallprime(200);
+
+
